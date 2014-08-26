@@ -4,7 +4,7 @@ Api-WordPress
 Tudo que precisa para criar um template, loops, chamadas... terá aqui
 
 
-> Exemplos
+> **Exemplos**
 
 `<!-- CATEGORY NAME = category_name=Vídeo Aulas -->
 <?php query_posts('showposts=1&cat=-1, -335');?>
