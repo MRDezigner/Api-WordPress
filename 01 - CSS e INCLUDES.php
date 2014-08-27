@@ -7,8 +7,8 @@ Theme Name: Guia na Tela
 Theme URI: 
 Description: Este tema foi desenvolvido para o mecanismo de busca GNT
 Version: 1.0
-Author: Ronner Sobreira
-Autor URL: ronner@gesti-net.com.br
+Author: Seu Nome
+Autor URL: email@email.com.br
 Tags:
 */
 
