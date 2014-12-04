@@ -30,6 +30,33 @@
 <!-- CORREÇÃO DO LINK PARA HOME -->
 <?php echo get_settings('home'); ?>
 
+<!-- MENU -->
+
+<?php
+
+	$defaults = array(
+		'theme_location'  => '',
+		'menu'            => '',
+		'container'       => 'nav',
+		'container_class' => '',
+		'container_id'    => '',
+		'menu_class'      => 'menu',
+		'menu_id'         => '',
+		'echo'            => true,
+		'fallback_cb'     => 'wp_page_menu',
+		'before'          => '',
+		'after'           => '',
+		'link_before'     => '',
+		'link_after'      => '<div class="clearfix"></div>',
+		'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+		'depth'           => 0,
+		'walker'          => ''
+	);
+
+	wp_nav_menu( $defaults );
+
+?>
+
 <DOCUMENTAÇÃO>
 http://codex.wordpress.org/Conditional_Tags
 http://codex.wordpress.org/Template_Tags
