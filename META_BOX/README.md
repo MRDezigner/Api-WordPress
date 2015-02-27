@@ -1,7 +1,7 @@
 Meta_Box
 =============
 
-Como usar
+Como usar Meta Box
 
 
 > **Functions.php**
@@ -78,3 +78,7 @@ add_filter('cmb_meta_boxes', 'pb_resultado_metaboxes');
 ?>
 
 ```
+
+> **Links Úteis**
+
+https://github.com/WebDevStudios/Custom-Metaboxes-and-Fields-for-WordPress
