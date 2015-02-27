@@ -1,7 +1,7 @@
 Meta_Box
 =============
 
-Como usar
+Como usar Meta_box
 
 
 > **Functions.php**
