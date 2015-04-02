@@ -79,6 +79,30 @@ add_filter('cmb_meta_boxes', 'pb_resultado_metaboxes');
 
 ```
 
+> **Exemplo Loop**
+
+```
+<?php
+    query_posts( array(
+        'meta_key' => 'slide_home_img',
+        'showposts' => '4', 
+        'post_type' => 'slide'
+
+    ));
+?>
+
+<?php if (have_posts()): while (have_posts()) : the_post();
+    $id_imgSlider = get_post_meta($post->ID, 'slide_home_img', true);
+?>
+
+<img src="<?php echo $id_imgSlider; ?>" alt="">
+
+<?php endwhile; else:?>
+<?php endif; wp_reset_query();?>
+
+```
+
+
 > **Links Úteis**
 
 https://github.com/WebDevStudios/Custom-Metaboxes-and-Fields-for-WordPress
