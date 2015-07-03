@@ -16,7 +16,9 @@ if ( $total > 1 )  {
             'current' => $current_page,  
             'total' => $total,  
             'mid_size' => 2,  
-            'type' => 'plain'  
+            'type' => 'plain',
+            'next_text' => 'Próxima',
+            'prev_text' => 'Anterior'
         ));  
     }  
 }
