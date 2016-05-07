@@ -5,13 +5,13 @@
 <!-- ele deverá fica na raiz do template, é dessa forma que o CMS reconhece o template criado -->
 	
 /*
-Theme Name: MRDezigner         // Coloque o neome que desejar
-Theme URI:                     // Sera o endereço do tema, caso vc disponibile no Wordpress.org
+Theme Name: MRDezigner         // Coloque o nome que desejar
+Theme URI:                     // Sera o endereço do tema, caso vc disponibileze no Wordpress.org
 Description: Este tema foi desenvolvido para o Wordpress
 Version: 1.0                   // A versão atual do template
 Author: Seu Nome               // O nome do autor, claro :)
-Autor URL: email@email.com.br  // O email do autor ou do empresa
-Tags:                          // Referencia ao estilo, é utilç na busca.
+Autor URL: email@email.com.br  // O e-mail do autor ou do empresa
+Tags:                          // Referencia ao estilo, é util na busca.
 */
 <!-- Aqui termina o CSS, é só isso pessoal -->
 
