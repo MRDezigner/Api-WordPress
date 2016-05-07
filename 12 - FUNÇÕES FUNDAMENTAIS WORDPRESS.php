@@ -2,7 +2,7 @@
 
 
 ///////////////////////////////////////////////////////////////////////////////
-// Remove WordPress Tags
+// Remove as Tags no WordPress
 remove_action('wp_head', 'wlwmanifest_link');
 remove_action('wp_head', 'rsd_link');
 remove_action('wp_head', 'wp_generator');
@@ -50,12 +50,12 @@ function register_my_menu() {
 
 
 ///////////////////////////////////////////////////////////////////////////////
-//Enable post and comments RSS feed links to head
+//Habilita post e comentários RSS feed links para o head
 add_theme_support( 'automatic-feed-links' );
 
 
 ///////////////////////////////////////////////////////////////////////////////
-// Enable post thumbnails
+// Habilita os thumbnails no post
 add_theme_support('post-thumbnails');
 
 
@@ -146,18 +146,18 @@ function search_results_title() {
 
 /*
  * COMO USAR: 
- *  1) Select all posts
- *  2) Get first attached images of the posts using get_children() function
- *  3) Use the set_post_thumbnail() function to set the featured image for the posts.
+ *  1) Seleciona todos os posts
+ *  2) Obter as primeira imagens anexados dos post que utilizam a função get_children()
+ *  3) Usa a função set_post_thumbnail() function para definir a imagem destaque para os posts.
  */
 
 function set_featured_image_for_posts()
 {
-  // Get all posts so set higher number, 
- // you can increase to any number if you have big amount of posts
+  // Se todas as mensagens assim definido como maior número, 
+ // você pode aumentar para qualquer número, se você tem grande quantidade de mensagens
   $args = array( 'numberposts' => 5000);
 
-  // all posts
+  // todos os posts
   $all_posts = get_posts( $args );  
 
   foreach($all_posts as $k=>$v)
@@ -170,18 +170,18 @@ function set_featured_image_for_posts()
       'post_type' => 'attachment'
       );  
 
-    // Get attachments
+    // Obter anexos
     $attachments = get_children( $args );
     $i=0;
     foreach($attachments as $attach)
     {
-      // Get only first image
+      // Obter apenas a primeira imagem
       if($i==0)
         $attachmentsid = $attach->ID;
       $i++;
     }
 
-    // Set Featured image
+    // Definir uma imagem em destaque
     set_post_thumbnail($v->ID,$attachmentsid);
   }
 
