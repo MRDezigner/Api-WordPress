@@ -6,7 +6,7 @@
 	
 /*
 Theme Name: MRDezigner         // Coloque o neome que desejar
-Theme URI:                     // Seia o endereço do tema, caso vc disponibile no Wordpress.org
+Theme URI:                     // Sera o endereço do tema, caso vc disponibile no Wordpress.org
 Description: Este tema foi desenvolvido para o Wordpress
 Version: 1.0                   // A versão atual do template
 Author: Seu Nome               // O nome do autor, claro :)
