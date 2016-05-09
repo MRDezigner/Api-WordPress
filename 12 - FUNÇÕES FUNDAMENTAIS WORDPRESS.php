@@ -251,14 +251,14 @@ function check_for_category_single_template( $t )
  
 }
 
-
+/**
+ * Acrescenta class ao <a href=""> do MENU.
+ *
+*/
+function add_menuclass($ulclass) {
+   return preg_replace('/<a /', '<a class="mbr-buttons__link btn text-white"', $ulclass);
+}
+add_filter('wp_nav_menu','add_menuclass');
 
 
 // FIM UPDATE PLUGINS
-
-
-
-
-
-
-?>
