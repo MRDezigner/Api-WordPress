@@ -260,5 +260,24 @@ function add_menuclass($ulclass) {
 }
 add_filter('wp_nav_menu','add_menuclass');
 
+/**
+ * Coloque o código abaixo no arquivo functions.php do seu tema. O número 80 é a quantidade de caracteres a exibir.
+ * 
+*/
+function get_excerpt(){
+	$excerpt = get_the_content();
+	$excerpt = preg_replace(" (\[.*?\])",'',$excerpt);
+	$excerpt = strip_shortcodes($excerpt);
+	$excerpt = strip_tags($excerpt);
+	$excerpt = substr($excerpt, 0, 80);
+	$excerpt = substr($excerpt, 0, strripos($excerpt, " "));
+	$excerpt = trim(preg_replace( '/\s+/', ' ', $excerpt));
+	return $excerpt;
+}
+
+/**
+ * Dentro do seu loop insira o código abaixo onde deseja exibir o resumo
+*/
+<?php echo get_excerpt(); ?>
 
 // FIM UPDATE PLUGINS
