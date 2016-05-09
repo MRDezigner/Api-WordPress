@@ -14,7 +14,7 @@
 <?php the_content();?>
 
 <!-- MORE -->
-<?php the_exept();?>
+<?php the_excerpt();?>
 
 <!-- TAGS com condição -->
 <?php if (function_exists('the_tags'))the_tags();?>
