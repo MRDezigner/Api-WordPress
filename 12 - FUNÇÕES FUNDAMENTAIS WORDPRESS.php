@@ -216,6 +216,44 @@ add_action('future_to_publish', 'autoset_featured');
 remove_action( 'load-update-core.php', 'wp_update_plugins' );
 add_filter( 'pre_site_transient_update_plugins', create_function( '$a', "return null;" ) );
 
+/*
+* Com o código abaixo, basta agora criar os modelos da seguinte forma:
+* single-nomedacategoria.php
+* Caso não exista um modelo personalizado, o WordPress utilizará
+* normalmente o arquivo single.php.
+* 
+*/
+add_filter('single_template', 'check_for_category_single_template');
+ 
+function check_for_category_single_template( $t )
+ 
+{
+ 
+  foreach( (array) get_the_category() as $cat )
+ 
+  {
+ 
+    if ( file_exists(TEMPLATEPATH . "/single-{$cat->slug}.php") ) return TEMPLATEPATH . "/single-{$cat->slug}.php";
+ 
+    if($cat->parent)
+ 
+    {
+ 
+      $cat = get_the_category_by_ID( $cat->parent );
+ 
+      if ( file_exists(TEMPLATEPATH . "/single-{$cat->slug}.php") ) return TEMPLATEPATH . "/single-{$cat->slug}.php";
+ 
+    }
+ 
+  }
+ 
+  return $t;
+ 
+}
+
+
+
+
 // FIM UPDATE PLUGINS
 
 
