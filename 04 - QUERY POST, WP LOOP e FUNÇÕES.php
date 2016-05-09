@@ -48,11 +48,20 @@ endforeach;
 <!-- PEGA IMG DESTAQUE -->
 <?php the_post_thumbnail(); ?>
 
+<!-- OS VALORES DETERMINAM O TAMANHO -->
+<?php the_post_thumbnail(array(160,160)); ?>
+
+<!-- PEGA IMG DESTAQUE e ADD UMA CLASSE(S) -->
+<?php the_post_thumbnail('post-thumbnail', array( 'class'	=> "zoomer-class attachment-post-thumbnail")); ?>
+
 <!-- PEGA A DATA -->
 <?php the_time('d M Y');?>
 
 <!-- INFORMA OS COMENTÁRIOS -->
 <?php comments_popup_link('0 comentário','1 comentário','% Comentários');?>
+
+<!-- Comment form -->
+<?php comments_template(); ?>
 
 <!-- CONSIÇÃO COM PLUGIN (wp views)-->
 <?php if(function_exists('the_views')){the_views();}?>
@@ -62,3 +71,19 @@ endforeach;
 
 <!-- LIMITA PALAVRAS (Baixe o plugin The Excerpt re-reloaded) -->
 <?php the_excerpt_rereloaded(NUMERO DE LETRAS);?>
+
+<!-- DESCRIÇÂO RESUMO 
+Excerpt re-reloaded
+-->
+<?php the_excerpt_rereloaded(35);?>
+
+<!-- OU -->
+<?php the_exept();?>
+
+<!-- condição para quando não haver resumos: -->
+<?php  if (has_excerpt() ) { ?>
+<?php the_excerpt(); ?>
+<?php } ?>
+
+<!-- TAGS com condição -->
+<?php if (function_exists('the_tags'))the_tags();?>
