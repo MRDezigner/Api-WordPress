@@ -78,7 +78,7 @@ Excerpt re-reloaded
 <?php the_excerpt_rereloaded(35);?>
 
 <!-- OU -->
-<?php the_exept();?>
+<?php the_excerpt();?>
 
 <!-- condição para quando não haver resumos: -->
 <?php  if (has_excerpt() ) { ?>
