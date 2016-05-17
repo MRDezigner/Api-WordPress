@@ -1,0 +1,111 @@
+/*
+* Habilitando o suporte para o Post Thumbnails
+*/
+
+// Acrescente essa função ao seu arquivo functions.php
+
+add_theme_support( 'post-thumbnails' );
+
+// Esta é a forma como você usa esses tamanhos padrão com the_post_thumbnail():
+// sem parâmetro -> Post Thumbnail (conforme definido pelo tema usando set_post_thumbnail_size())
+the_post_thumbnail();
+
+the_post_thumbnail('thumbnail');       // Thumbnail (default 150px x 150px max) 
+the_post_thumbnail('medium');          // Resolução média (default 300px x 300px max)
+the_post_thumbnail('large');           // Resolução maior (default 640px x 640px max)
+the_post_thumbnail('full');            // Resolução imagem original (unmodified)
+
+the_post_thumbnail( array(100,100) );  // Other resolutions
+
+// Todos esses tamanhos podem ser alterados a seu bel prazer :)
+
+// Definir o tamanho do Post Thumbnail
+// Definir o tamanho padrão Post Thumbnail redimensionando a imagem proporcionalmente 
+// (isto é, sem distorcê-la):
+
+set_post_thumbnail_size( 50, 50 ); // 50 pixels wide by 50 pixels tall, resize mode
+
+// Definir o tamanho padrão do Post Thumbnail para cortar a imagem 
+// (seja pelos lados, ou a partir da parte superior e inferior):
+
+set_post_thumbnail_size( 50, 50, true ); // 50 pixels wide by 50 pixels tall, crop mode
+set_post_thumbnail_size( 50, 50, array( 'top', 'left')  ); // 50 pixels wide by 50 pixels tall, crop from the top left corner
+set_post_thumbnail_size( 50, 50, array( 'center', 'center')  ); // 50 pixels wide by 50 pixels tall, crop from the center
+
+// Adicionar Novos Tamanhos ao Post Thumbnail
+// Exemplo de um novo tamanho para Post Thumbnail chamada "category-thumb".
+// Para ser usado no arquivo functions.php do seu tema atual.
+
+add_image_size( 'category-thumb', 300, 9999 ); //300 pixels de largura (e altura ilimitado)
+
+// Aqui está um exemplo de como usar este novo tamanho Post Thumbnail em arquivos de modelo temáticos.
+
+<?php the_post_thumbnail( 'category-thumb' ); ?>
+
+// Exeamplo de functions.php
+
+if ( function_exists( 'add_theme_support' ) ) { 
+    add_theme_support( 'post-thumbnails' );
+    set_post_thumbnail_size( 150, 150, true ); // default Post Thumbnail dimensions (cropped)
+
+    // additional image sizes
+    // delete the next line if you do not need additional image sizes
+    add_image_size( 'category-thumb', 300, 9999 ); //300 pixels wide (and unlimited height)
+}
+
+// Estilo de Post Thumbnails
+// Post Thumbnails recebem uma class chamada "wp-post-image". 
+// Eles também podem receber uma classe, dependendo do tamanho da miniatura a ser exibida. Por exemplo:
+
+the_post_thumbnail();
+the_post_thumbnail('medium');
+the_post_thumbnail( array(100,100) );
+the_post_thumbnail( 'category-thumb' );		// Veja exemplo acima
+
+// Estas linhas irão gerar o seguinte HTML:
+
+<img src=... class="attachment-post-thumbnail wp-post-image" ...>
+<img src=... class="attachment-medium wp-post-image" ...>
+<img src=... class="attachment-100x100 wp-post-image" ...>
+<img src=... class="attachment-category-thumb wp-post-image" ...>
+
+// Você pode estilizar a saída com estes seletores CSS:
+
+img.wp-post-image
+img.attachment-post-thumbnail
+img.attachment-thumbnail
+img.attachment-medium
+img.attachment-large
+img.attachment-full
+
+// Você também pode dar ao Post Thumbnails sua própria classe, em vez dessas classes,
+// dependendo do tamanho da miniatura. Próximo exemplo exibe o Post Thumbnail com uma classe chamada "AlignLeft":
+
+<?php the_post_thumbnail('medium', array('class' => 'alignleft')); ?>
+
+// Ele irá gerar o seguinte HTML:
+
+<img src="..." class="alignleft wp-post-image" ...>
+
+// Fonte: https://codex.wordpress.org/Post_Thumbnails
+
+/*
+* Como eu uso em meu functions.php
+*/
+
+add_theme_support( 'post-thumbnails' );
+add_image_size( 'thumbnail', 75, 75, true );
+add_image_size( 'medium', 300, 300 );
+add_image_size( 'large', 640, 640 );
+add_image_size( 'full', 1200, 9999 );
+
+// Nos modelos temáticos é só chamar a class
+
+<?php the_post_thumbnail( 'thumbnail' ); ?>
+
+<?php the_post_thumbnail( 'medium' ); ?>
+
+<?php the_post_thumbnail( 'large' ); ?>
+
+<?php the_post_thumbnail( 'full' ); ?>
+
