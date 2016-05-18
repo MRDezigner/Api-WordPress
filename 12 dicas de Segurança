@@ -1,0 +1,115 @@
+/*
+* 1. Mantenha o WordPress atualizado.
+*/
+
+/*
+* 2. Plugins e Temas desnecessários ou desatualizados.
+*/
+Para os plugins e temas que não estiverem sendo utilizados, o importante é que sejam totalmente excluídos.
+
+/*
+* 3. Fazer Backup do Banco de Dados Regularmente.
+*/
+É muito simples e rápido.
+
+/*
+* 4. Retire a Meta Tag que mostra a Versão do seu WordPress.
+*/
+// O código da meta tag fica dentro do arquivo header.php do seu tema. 
+// A linha que você deve remover é igual ou similar a demonstrado abaixo:
+
+<meta name="generator" content="WordPress <?php bloginfo('version');?>"/>
+
+/*
+* 5. Exclusão de arquivos
+*/
+
+/wp­-config­-sample.php
+/readme.html
+/license.txt
+/wp-­admin/install.php
+
+/*
+* 6. Bloquear indexação do Google de pastas indesejadas
+*/
+// Crie um arquivo chamado “robots.txt” dentro da public_html, com o seguinte conteúdo.
+
+Disallow: /wp-*
+Disallow: /feed/
+Disallow: /trackback
+
+/*
+* 7. Não utilizar o login “Admin” padrão do WordPress
+*/
+
+// Para evitar ou dificultar esse acesso não autorizado, mude o login do usuário principal para outro qualquer. 
+// Quanto mais difícil de ser adivinhado, melhor.
+
+/*
+* 8. Restringir acesso a pasta wp-content
+*/
+// Você deve criar um arquivo .htaccess dentro da pasta wp-content com o seguinte conteúdo:
+
+Order Allow,Deny
+Deny from all
+<FilesMatch "\.(jpg|gif|png|js|css|txt)$" >
+Allow from all
+</FilesMatch>
+
+/*
+* 9. Proteger o arquivo de configuração “wp-config.php”
+*/
+// O arquivo wp-­config.php é o maestro que rege uma aplicação em WordPress. 
+// Ele deve ser bem tratado e potencializado com constantes que elevam o nível de segurança. 
+// Alguns conselhos.
+// 9.1  Manter o arquivo um nível acima do diretório público;
+
+// 9.2  Usar a permissão 400 (readonly) ou 600 (para permissão de escrita);
+
+// 9.3. No arquivo .htaccess fazer uso de diretiva para proteção;
+
+<files wp­config.php>
+order allow,deny
+deny from all
+</files>
+
+// 9.4. Fazer uso de algumas constantes do WordPress;
+
+define( 'DISALLOW_FILE_EDIT', true );
+ou
+define( 'DISALLOW_FILE_MODS', true );
+
+// OBS: Com a constante DISALLOW_FILE_EDIT não será possibilitado ao usuário editar os arquivos de plugins e 
+// temas através da interface do WordPress. Já a constante DISALLOW_FILE_MODS além da mesma funcionalidade 
+// evita a instalação e atualização do core, plugins e temas.
+
+// 9.5. Considerar o uso e atualização das Chaves únicas de autenticação e salts.
+
+https://api.wordpress.org/secret­key/1.1/salt/
+
+/*
+* 10. Permissão dos arquivos e pastas.
+*/
+
+// As permissões corretas para os arquivos e pastas são:
+// Todos os arquivos devem ter a permissão chmod 644 .
+// Todas as pastas devem ter a permissão chmod 755.
+
+/*
+* 11. Captcha wp-login.
+*/
+// Uma outra boa forma para tornar o sistema de login do teu blog mais seguro é usar este plugin “captcha-on-login“.
+// https://wordpress.org/plugins/captcha-on-login/
+
+/*
+* 12. Ataque no WordPress através do arquivo xmlrpc.php.
+*/
+
+// Está ocorrendo muito ataque DDos neste arquivo. O aconselhável é realizar a configuração abaixo no arquivo .htaccess:
+
+<Files "xmlrpc.php">
+Order Allow,Deny
+deny from all
+</files>
+
+// Fonte: http://lsantos.blog.br/12-dicas-de-seguranca-para-wordpress/
