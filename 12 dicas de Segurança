@@ -61,7 +61,7 @@ Sitemap: http://www.nomedosite.com.br/sitemap.xml // Escreva o endreço completo
 
 Order Allow,Deny
 Deny from all
-<FilesMatch "\.(jpg|gif|png|js|css|txt)$" >
+<FilesMatch "\.(jpg|gif|png|js|css|txt|otf|svg|ttf|woff|woff2)$" >
 Allow from all
 </FilesMatch>
 
