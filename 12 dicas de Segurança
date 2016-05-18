@@ -34,9 +34,18 @@ Para os plugins e temas que não estiverem sendo utilizados, o importante é que
 */
 // Crie um arquivo chamado “robots.txt” dentro da public_html, com o seguinte conteúdo.
 
-Disallow: /wp-*
+User-agent: *
+
 Disallow: /feed/
-Disallow: /trackback
+Disallow: /trackback/
+Disallow: /wp-admin/
+Disallow: /wp-content/
+Disallow: /wp-includes/
+Disallow: /xmlrpc.php
+Disallow: /wp-
+Allow:    /images // Eu não uso a pasta uploads padrão do WordPress, se for o seu caso é so mudar o caminho
+
+Sitemap: http://www.nomedosite.com.br/sitemap.xml // Escreva o endreço completo
 
 /*
 * 7. Não utilizar o login “Admin” padrão do WordPress
