@@ -1,0 +1,40 @@
+/*
+* Ativar a compactação GZIP no servidor 
+*/
+// Localize o arquivo .htaccess, geralmente fica na raiz,
+// clique duas vezes sobre ele e mande editar, após aberto depois da última linha cole o seguinte código:
+
+# inicio compressão GZIP
+<ifModule mod_deflate.c>
+    <filesMatch "\.(js|css|html|php)$">
+        AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript
+    </filesMatch>
+ </ifModule>
+# Fim compressão GZIP
+
+// Após reenviar o arquivo para o servidor cheque se realmente a compressão foi ativada acessando o site: 
+// http://checkgzipcompression.com/ lá será mostrado o tamanho do site com e sem compressão, 
+// você vai tomar um susto quando ver a diferença.
+
+/*
+* Ativar o recurso de cache utilizando o .htaccess
+*/
+
+# COMEÇA BROWSER CACHE
+
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/jpg “access plus 1 year”
+ExpiresByType image/jpeg “access plus 1 year”
+ExpiresByType image/gif “access plus 1 year”
+ExpiresByType image/png “access plus 1 year”
+ExpiresByType text/css “access plus 1 month”
+ExpiresByType application/pdf “access plus 1 month”
+ExpiresByType text/x-javascript “access plus 1 month”
+ExpiresByType application/x-shockwave-flash “access plus 1 month”
+ExpiresByType image/x-icon “access plus 1 year”
+ExpiresByType application/javascript “access plus 1 month”
+ExpiresDefault “access plus 2 days”
+</IfModule>
+
+# TERMINA BROWSER CACHE
