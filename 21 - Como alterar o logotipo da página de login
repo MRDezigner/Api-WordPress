@@ -1,0 +1,43 @@
+/*
+* 1 – Crie uma nova imagem com seu logotipo, e a salve com o nome logo.jpg. Você pode criar do tamanho que quiser, mas o ideal é que não passe de 300 pixels de largura.
+* 2 – Salve este arquivo na pasta images do tema utilizado. Caso não existir, crie-a.
+* 3 – No arquivo functions.php de seu tema, adicione o trecho de código abaixo:
+*/
+
+function custom_admin_logo() {
+
+function custom_admin_login() {
+echo ”<style type=”text/css”>
+.login h1 a{
+background-image: url(‘. get_template_directory_uri() . ‘/images/logo.jpg’) !important;
+background-size: [Largura da Imagem]px [Altura da Imagem]px;
+width: [Largura da Imagem]px;
+}
+</style>’;
+
+add_action(‘admin_head’, ‘custom_admin_logo’);
+
+/*
+* Fonte: http://tudoparawp.com.br/dicas-wordpress/alterar-logotipo-pagina-login-wp-login-wordpress/
+*/
+
+/*
+* Como alterar link e tooltip da logo na página de login do WP
+*/
+
+// Basta adicionar o trecho abaixo no arquivo functions.php do seu tema, modificando as áreas indicadas.
+
+function loginpage_custom_link() {
+return ‘http://www.linkdoseusite.com.br/‘;
+}
+add_filter(‘login_headerurl’,’loginpage_custom_link’);
+
+function change_title_on_logo() {
+return ‘Nome do site‘;
+}
+add_filter(‘login_headertitle’, ‘change_title_on_logo’);
+
+
+/*
+* Fonte: http://tudoparawp.com.br/dicas-wordpress/alterar-link-tooltip-logo-pagina-login-wordpress/
+*/
