@@ -3,21 +3,25 @@
 <h5>Tudo que precisa para criar um template, loops, chamadas... terá aqui</h5>
 <h4>** Exemplo Loop Categorias **</h4>
 
-<pre>
-<!-- CATEGORY NAME = category_name=nome-da-categoria -->
+<code>
+// <!-- CATEGORY NAME = category_name=nome-da-categoria -->
 
 <?php query_posts('showposts=1&cat=-1, -335');?>
-</pre>
+</code>
 
-<pre><!-- ABRE O LOOP PARA POSTAGEM  -->
+<code>
+// <!-- ABRE O LOOP PARA POSTAGEM  -->
+
 <?php if (have_posts()): while (have_posts()) : the_post();?>
-</pre>
+</code>
 
-<pre>
-<!-- FECHA O LOOP -->
+<code>
+// <!-- FECHA O LOOP -->
+
 <?php endwhile; else:?>
+
 <?php endif?>
-</pre>
+</code>
 
 <h4>** Exemplo style.css **</h4>
 
