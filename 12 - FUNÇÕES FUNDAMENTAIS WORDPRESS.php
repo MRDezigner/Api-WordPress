@@ -1,6 +1,5 @@
 <?php
 
-
 ///////////////////////////////////////////////////////////////////////////////
 // Remove WordPress Tags
 remove_action('wp_head', 'wlwmanifest_link');
@@ -26,6 +25,12 @@ function my_function_admin_bar(){
 }
 add_filter( "show_admin_bar" , "my_function_admin_bar");
 
+/*
+* Ativar compactação GZIP em um blog WordPress
+*/
+
+if(extension_loaded("zlib") && (ini_get("output_handler") != "ob_gzhandler")) 
+add_action('wp', create_function('', '@ob_end_clean();@ini_set("zlib.output_compression", 1);'));
 
 ///////////////////////////////////////////////////////////////////////////////
 // REMOVER META GENERATOR
@@ -40,17 +45,17 @@ add_filter('get_the_generator_'.$type, 'remove_generator_filter');
 
 
 ///////////////////////////////////////////////////////////////////////////////
-//Add support for WordPress 3.0's custom menus
+// Add support for WordPress 3.0's custom menus
 add_action( 'init', 'register_my_menu' );
 
-//Register area for custom menu
+// Register area for custom menu
 function register_my_menu() {
   register_nav_menu( 'primary-menu', __( 'Primary Menu' ) );
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////
-//Enable post and comments RSS feed links to head
+// Enable post and comments RSS feed links to head
 add_theme_support( 'automatic-feed-links' );
 
 
@@ -114,10 +119,12 @@ function pagination_funtion() {
       ));
   }
 }
-  /*
-  CHAMADA NO POST  -->  <?php pagination_funtion(); ?>
-  */
-  /** Fim Paginacao */
+
+
+/*
+* CHAMADA NO POST  -->  <?php pagination_funtion(); ?>
+*/
+/** Fim Paginacao */
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -216,11 +223,25 @@ add_action('future_to_publish', 'autoset_featured');
 remove_action( 'load-update-core.php', 'wp_update_plugins' );
 add_filter( 'pre_site_transient_update_plugins', create_function( '$a', "return null;" ) );
 
+
+///////////////////////////////////////////////////////////////////////////////
+/*
+* Inicio agregar comentarios do facebook ao wordpress
+*/
+
+function full_comment_count() {
+  global $post;
+  $url = get_permalink($post->ID);  
+
+  $filecontent = file_get_contents('https://graph.facebook.com/?ids=' . $url);
+  $json = json_decode($filecontent);
+  $count = $json->$url->comments;
+  $wpCount = get_comments_number();
+  $realCount = $count + $wpCount;
+  if ($realCount == 0 || !isset($realCount)) {
+    $realCount = 0;
+  }
+  return $realCount;
+}
+
 // FIM UPDATE PLUGINS
-
-
-
-
-
-
-?>
