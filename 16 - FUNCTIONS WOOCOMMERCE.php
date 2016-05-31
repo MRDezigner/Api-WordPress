@@ -1,7 +1,11 @@
-// MOSTRA TODOS OS PRODUTOS DO WOOCOMMERCE
+/*
+* MOSTRA TODOS OS PRODUTOS DO WOOCOMMERCE
+*/
 add_filter( 'loop_shop_per_page', create_function( '$cols', 'return 24;' ), 20 );
 
-// Ensure cart contents update when products are added to the cart via AJAX (place the following in functions.php)
+/*
+* Ensure cart contents update when products are added to the cart via AJAX (place the following in functions.php)
+*/
 add_filter('add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment');
  
 function woocommerce_header_add_to_cart_fragment( $fragments ) {
@@ -19,7 +23,6 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
   
 }
 
-
 /*
 * Enable support for WooCommerce on Pages.
 * See http://codex.wordpress.org/Excerpt
@@ -29,9 +32,11 @@ function woocommerce_support() {
 }
 add_action( 'after_setup_theme', 'woocommerce_support' );
 
-// Trabalhando com CSS da forma correta no WooCommerce
-// Copie todos os arquivos da pasta woocommerce/assets/css/ para o seu tema, 
-// por exemplo em uma pasta chamada /woocommerce/css.
+/*
+* Trabalhando com CSS da forma correta no WooCommerce
+* Copie todos os arquivos da pasta woocommerce/assets/css/ para o seu tema, 
+* por exemplo em uma pasta chamada /woocommerce/css.
+*/
 add_filter( 'woocommerce_enqueue_styles', '__return_false' );
 
 function my_theme_woocommerce_enqueue_styles( $styles ) {
@@ -43,5 +48,7 @@ function my_theme_woocommerce_enqueue_styles( $styles ) {
 }
 add_filter( 'woocommerce_enqueue_styles', 'my_theme_woocommerce_enqueue_styles' );
 
-// E pronto, agora o WooCommerce já sabe que deve carregar os arquivos que estão no seu tema 
-// e isso irá sobreviver a qualquer atualização.
+/*
+* E pronto, agora o WooCommerce já sabe que deve carregar os arquivos que estão no seu tema 
+* e isso irá sobreviver a qualquer atualização.
+*/
