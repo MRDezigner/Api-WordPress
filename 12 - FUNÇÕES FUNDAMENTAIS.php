@@ -244,4 +244,46 @@ function full_comment_count() {
   return $realCount;
 }
 
+///////////////////////////////////////////////////////////////////////////////
+/*
+* Removendo os filtros do Jetpack
+* Para sobrescrever este posicionamento automático, você precisará remover estes dois filtros 
+* logo antes da função the_content (ou the_excerpt) nos arquivos do seu tema. 
+* Vejamos como no exemplo abaixo:
+*/
+
+add_action( 'init', 'custom_init', 11 );
+/**
+ * Callback for WordPress 'init' action.
+ * 
+ * Remove the 'the_content' filter callback added by sharedaddy 
+ * to prevent the sharing links from being appended to the posts content.
+ * 
+ * @see http://codex.wordpress.org/Plugin_API/Action_Reference/init
+ * 
+ * @since 0.2
+ * @author Ryan Meier <rfmeier@gmail.com>
+ * 
+ * @return none
+ */
+function custom_init() {
+    //* if sharing_display() function does not exist, return
+    if( ! function_exists( 'sharing_display' ) ) {
+        return;
+    }
+    
+    //* remove the callback sharing_display() for the filter.
+    remove_filter( 'the_excerpt', 'sharing_display', 19 );
+    remove_filter( 'the_content', 'sharing_display', 19 );
+    
+}
+
+/**
+ * Adicionando os botões do Jetpack manualmente
+ * /
+ 
+ <?php if ( function_exists( 'sharing_display' ) ) echo sharing_display(); ?> 
+
+// Você poderá colocar os botões antes do conteúdo da postagem ou depois ou ambos, fica a seu critério :)
+
 // FIM UPDATE PLUGINS
