@@ -280,9 +280,9 @@ function custom_init() {
 
 /**
  * Adicionando os botões do Jetpack manualmente
- * /
- 
- <?php if ( function_exists( 'sharing_display' ) ) echo sharing_display(); ?> 
+ */
+
+<?php if ( function_exists( 'sharing_display' ) ) echo sharing_display(); ?> 
 
 // Você poderá colocar os botões antes do conteúdo da postagem ou depois ou ambos, fica a seu critério :)
 
