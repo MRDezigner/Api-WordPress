@@ -1,5 +1,6 @@
 /*
-* 1 – Crie uma nova imagem com seu logotipo, e a salve com o nome logo.jpg. Você pode criar do tamanho que quiser, mas o ideal é que não passe de 300 pixels de largura.
+* 1 – Crie uma nova imagem com seu logotipo, e a salve com o nome logo.jpg. Você pode criar do tamanho que quiser, 
+* mas o ideal é que não passe de 300 pixels de largura.
 * 2 – Salve este arquivo na pasta images do tema utilizado. Caso não existir, crie-a.
 * 3 – No arquivo functions.php de seu tema, adicione o trecho de código abaixo:
 */
