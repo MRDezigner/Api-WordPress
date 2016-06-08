@@ -20,6 +20,7 @@
 
 <!-- coloque logo acima do fechamento do body -->
 <?php wp_footer(); ?>
+</body>
 
 <!-- CORREÇÃO DO LINK PARA TEMPLATE -->
 <?php bloginfo('template_directory'); ?>/
