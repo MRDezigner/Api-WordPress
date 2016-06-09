@@ -59,6 +59,24 @@ if ( $total > 1 )  {
 }
 /** END Pagination */
 
+/*
+* Exemplo de paginação entre os posts no wordpress
+*/
+
+<div class="navigation">
+  <div class="next bg-nav">
+    <?php next_posts_link('<span>Pr&oacute;ximos</span>') ?>
+  </div>
+  <div class="prev bg-nav">
+    <?php previous_posts_link('<span>Anteriores</span>') ?>
+  </div>
+</div>
+
+/*
+* Exemplo de paginação entre as páginas no wordpress
+*/
+
+
 
 /*
 * USAR NO SEU .CSS PADRÃO
