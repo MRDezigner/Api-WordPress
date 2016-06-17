@@ -142,13 +142,6 @@ Lembro que este código só irá funcionar perfeitamente se você adicionar na p
 Caso tenha ficado alguma dúvida não deixe de perguntar.<br>
 Se gostou do artigo <strong>não deixe de comentar</strong>, ok?<br>
 Muito Obrigado e até a próxima.</p>
-
-<!-- PLUGIN DOS BOTES DE REDE SOCIAL -->
-<!-- DIVIDE O TEXTO NO MEIO PARA ADICIONAR OS BOTOES DE REDE SOCIAL -->
-
-
-
-<!-- AUTOR -->
 <section class="autor">
 <div class="row">
 <div class="col-md-12">
