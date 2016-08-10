@@ -23,4 +23,21 @@ if($categories){
 	}
 echo trim($output, $separator);
 }
+
+/* A função <?php the_category(); ?> exibe as categorias cadastradas no post. 
+* Para exibir o nome de uma categoria específica você pode usar o seguinte:
+*/
+
+<?php
+	$category = get_the_category('1');
+	echo $category[0]->cat_name;
+?>
+/* 
+* Lembrando que você deve alterar o valor 1 para o ID da categoria desejada.
+*/
+
+// Referência:
+
+http://codex.wordpress.org/Template_Tags/get_the_category
+
 ?>
