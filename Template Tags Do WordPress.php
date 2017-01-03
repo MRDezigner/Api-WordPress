@@ -14,13 +14,14 @@
 * 
 * Ele começa assim:
 */
+
   <?php while (have_posts()) : the_post(); ?>
 
 /* 
 * E termina com este código:
 */
 
-  <?php endwhile; //fim do loop ?>
+  <?php endwhile; ?>
 
 /* 
 * Veja um exemplo de uma estrutura simples que exibe 
@@ -31,7 +32,7 @@
 
     <h1><a href="<?php the_permalink();?>"><?php the_title(); ?></a></h1>
 
-    <?php the_content('Leia o resto...');?>
+    <?php the_content(); ?>
 
   <?php endwhile; ?>
 
@@ -40,7 +41,7 @@
 * informações como a url do post, exibem o conteúdo, título dos posts, etc. São elas:
 */
 
-  <?php the_permalink();?>
+  <?php the_permalink(); ?>
 
 /* 
 * Exibe a url do post
@@ -189,14 +190,14 @@
   <?php endforeach; ?>
   
 /* 
-* Na terceira linha, onde esta o get_posts(“), você insere paremetros sobre como o 
-* posts que estão dentro o loop funcionarão. Exemplo de um loop:
+* Na terceira linha, onde esta o get_posts("), você insere paremetros sobre como o 
+* posts que estão dentro do loop funcionarão. Exemplo de um loop:
 */
     
   <ul>
     <?php
     global $post;
-    $myposts = get_posts('numberposts=5');
+    $myposts = get_posts('numberposts=5&category=1&offset=1&order=asc');
     foreach($myposts as $post) :
     setup_postdata($post);
     ?>
