@@ -32,7 +32,7 @@
 <?php if(function_exists('the_views')){the_views();} ?>
 
 <!-- AUTOR TAGS IN LOOP (DEVEM ESTAR DENTRO DO LOOP DO POST -->
-<?php the_autor();?>
+<?php the_author();?>
 
 <!-- AVATAR -->
 <?php echo get_avatar(get_the_author_id(),80); ?>
