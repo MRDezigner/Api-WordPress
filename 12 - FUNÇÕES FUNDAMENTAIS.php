@@ -286,4 +286,26 @@ function custom_init() {
 
 // Você poderá colocar os botões antes do conteúdo da postagem ou depois ou ambos, fica a seu critério :)
 
+
+/*
+* Alterar o email padrão de envio do WordPress
+* Se você deseja alterar o email e o nome padrão que o WordPress utiliza para envia emails
+*/
+
+
+// add this lines in your functions.php of your theme
+ 
+add_filter('wp_mail_from',      'new_mail_from');
+add_filter('wp_mail_from_name', 'new_mail_from_name');
+ 
+function new_mail_from($default) {
+    return 'your-email@domain.com'; // change to your email
+}
+ 
+function new_mail_from_name($default) {
+    return 'your-name'; // change to your name
+}
+
+
+
 // FIM UPDATE PLUGINS
