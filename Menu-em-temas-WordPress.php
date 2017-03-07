@@ -178,7 +178,7 @@ wp_nav_menu( $header_menu_args );
 * A partir daqui, seu menu deverá estar mais ou menos assim:
 */
 
-![Alt Text](https://www.todoespacoonline.com/w/wp-content/uploads/2014/09/Screenshot_7.png)
+[[https://www.todoespacoonline.com/w/wp-content/uploads/2014/09/Screenshot_7.png)]]
 
 /*
 * Caso queira baixar o tema que criamos no ponto que paramos nesse tutorial, segue o link:
