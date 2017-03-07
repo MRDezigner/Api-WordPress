@@ -187,3 +187,5 @@ wp_nav_menu( $header_menu_args );
 <a href="https://www.todoespacoonline.com/w/tuts/2014/09/tutsup-tema-basico-1-7.zip">tutsup-tema-basico-1-7.zip</a>
 
 Fonte: <a href="https://www.todoespacoonline.com/w/2014/09/menu-em-temas-wordpress/">TEO</a>
+
+:clap:
