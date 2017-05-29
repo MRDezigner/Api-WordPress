@@ -48,3 +48,7 @@
 
 <!-- META PARA BLOG INTERNO -->
 <?php the_author_posts_link();?>
+
+/** Como exibir endereço da imagem destacada do WordPress **/
+<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' ); ?>
+<img src="<?php echo $image[0]; ?>">
