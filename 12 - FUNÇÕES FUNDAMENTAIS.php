@@ -306,6 +306,8 @@ function new_mail_from_name($default) {
     return 'your-name'; // change to your name
 }
 
+/** Caso o seu WP não consiga gravar um post vazio adicione a sua functions.php: */
 
+add_filter('wp_insert_post_empty_content', '__return_false');
 
 // FIM UPDATE PLUGINS
